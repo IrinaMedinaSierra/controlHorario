@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro Horario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container py-5">
+<h1 class="mb-4">Registrar Horario</h1>
+<form action="/registrar" method="post" class="mb-4">
+    <div class="mb-3">
+        <label class="form-label">Selecciona el empleado:</label>
+        <select class="form-select" name="nombre" required>
+            <option th:each="emp : ${empleados}" th:value="${emp.nombre}" th:text="${emp.nombre}"></option>
+        </select>
+    </div>
+    <div class="d-flex gap-3">
+        <button type="submit" name="tipo" value="Entrada" class="btn btn-success">Entrada</button>
+        <button type="submit" name="tipo" value="Salida" class="btn btn-danger">Salida</button>
+    </div>
+</form>
+<a href="/historial" class="btn btn-primary">Ver historial</a>
+<a href="/alta-empleado" class="btn btn-secondary">Alta de empleados</a>
+</body>
+</html>
